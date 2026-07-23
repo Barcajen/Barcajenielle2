@@ -7,30 +7,28 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
-  background:linear-gradient(135deg,#ff9a9e 0%,#fecfef 50%,#fecfef 100%) !important;
+  background:linear-gradient(135deg,#ff9a9e 0%,#fecfef 50%,#fecfef 100%);
   min-height:100vh;
   font-family:'Arial', sans-serif;
   overflow-x:hidden;
   position:relative;
 }
+
+/* NAHUHULOG NA HEART - GINANAWA KO */
 .heart{
   position:fixed;
   color:#ff4d6d;
-  font-size:30px;
   animation:fall 5s linear infinite;
   pointer-events:none;
   z-index:1;
   opacity:0.8;
 }
-@keyframes fall{0%{top:-10%;transform:rotate(0deg)}100%{top:110%;transform:rotate(360deg)}}
-.big-heart{
-  font-size:80px;
-  color:#ff4d6d;
-  animation:jump 1.5s infinite;
-  display:inline-block;
-  margin:15px 0;
+@keyframes fall{
+ 0%{top:-10%;transform:rotate(0deg)}
+ 100%{top:110%;transform:rotate(360deg)}
 }
-@keyframes jump{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1.3) translateY(-20px)}}
+
+/* FULL SCREEN CARD */
 .card{
   background:white;
   width:100vw;
@@ -40,25 +38,67 @@ body{
   position:relative;
   z-index:10;
 }
-.card h1{color:#ff4d6d;margin:10px 0;font-size:32px;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-.card h2{color:#555;font-size:18px;margin-bottom:10px}
-.days{color:#ff4d6d;font-weight:bold;font-size:16px;margin-bottom:20px}
-.gallery{display:grid;grid-template-columns:1fr 1fr;gap:15px;max-width:600px;margin:25px auto;}
-.photo{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:25px;border:4px solid #ff4d6d;box-shadow:0 10px 25px rgba(255,77,109,0.3);}
-.btn{background:linear-gradient(135deg,#ff4d6d,#ff8fa3);color:white;border:none;padding:16px 40px;border-radius:30px;font-size:18px;cursor:pointer;margin:20px 0;font-weight:bold;}
-#letter{display:none;margin:25px auto;padding:30px;background:#fff0f5;border-radius:25px;text-align:left;font-size:16px;line-height:2;max-width:600px;border:2px solid #ffc2d1;}
-#letter h3{color:#ff4d6d;text-align:center;margin-bottom:20px;font-size:22px}
+
+.card h1{
+  color:#ff4d6d;
+  margin:10px 0;
+  font-size:36px;
+}
+.big-heart{
+  font-size:90px;
+  color:#ff4d6d;
+  animation:jump 1.5s infinite;
+  display:inline-block;
+  margin:15px 0;
+}
+@keyframes jump{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
+
+.card h2{color:#555;font-size:20px;margin-bottom:10px}
+.days{color:#ff4d6d;font-weight:bold;font-size:18px;margin-bottom:20px}
+
+.gallery{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  max-width:700px;
+  margin:25px auto;
+}
+.photo{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:25px;
+  border:4px solid #ff4d6d;
+}
+
+button{
+  background:linear-gradient(135deg,#ff4d6d,#ff8fa3);
+  color:white;
+  border:none;
+  padding:18px 45px;
+  border-radius:30px;
+  font-size:20px;
+  cursor:pointer;
+  margin:20px 0;
+  font-weight:bold;
+}
+
+#letter{
+  display:none;
+  margin:25px auto;
+  padding:30px;
+  background:#fff0f5;
+  border-radius:25px;
+  text-align:left;
+  font-size:17px;
+  line-height:2;
+  max-width:700px;
+  border:2px solid #ffc2d1;
+}
+#letter h3{color:#ff4d6d;text-align:center;margin-bottom:20px;font-size:24px}
 </style>
 </head>
 <body>
-<!-- MGA NAHUHULOG NA HEART -->
-<div class="heart" style="left:5%">❤️</div>
-<div class="heart" style="left:20%;animation-delay:1s">❤️</div>
-<div class="heart" style="left:40%;animation-delay:2s">❤️</div>
-<div class="heart" style="left:60%;animation-delay:1.5s">❤️</div>
-<div class="heart" style="left:80%;animation-delay:3s">❤️</div>
-<div class="heart" style="left:95%;animation-delay:0.5s">❤️</div>
 
 <div class="card">
 <h1>For My Love Rose ❤️</h1>
@@ -73,34 +113,50 @@ body{
 <img src="picture4.jpg" class="photo">
 </div>
 
-<p style="font-size:18px;margin:15px 0;"><b>Our Love Story Started ❤️</b><br>June 17, 2026</p>
-<button class="btn" onclick="document.getElementById('letter').style.display='block'">Open My Heart 💌</button>
+<p style="font-size:20px;margin:15px 0;"><b>Our Love Story Started ❤️</b><br>June 17, 2026</p>
+
+<button onclick="openLetter()"> Open My Heart 💌 </button>
 
 <div id="letter">
 <h3>My Dearest Rose ❤️</h3>
-<p>Happy 2nd Monthsary, my love! 🎉</p>
-<p>Since <b>June 17, 2026</b>, you became my favorite person in the whole world. Even though we're doing LDR, I'm still the happiest because you're the one I talk to everyday.</p>
-
-<p><b>I know I tease you a lot and I annoy you sometimes haha</b> 😂 I'm sorry in advance! But even when I tease you, even when I'm being makulit... <b>I still love you so much.</b> The way I tease you is just my way of showing how comfortable and happy I am with you.</p>
-
-<p>I love our calls, our chats, and all our kulitan moments. I love how you laugh at my corny jokes. I love how you understand me even when I'm being annoying.</p>
-
-<p>Thank you for being patient with me. Thank you for choosing me everyday. Thank you for making LDR feel easier just because it's you.</p>
-
-<p>Soon, we won't be counting the days until we see each other. Soon, we'll be together. For now, let's keep making beautiful memories like this ❤️</p>
-
-<p><b>Distance is just a test, and we're passing it together.</b> I love you today, tomorrow, and forever.</p>
-  
-<p><b>Forever yours ❤️<br>Jenielle Barca</b></p>
+<p>
+Happy Monthsary, my love. <br><br>
+Since <b>June 17, 2026</b>, you became one of the most special people in my life. <br><br>
+Even though we are far from each other, my love for you will never change. Every message, every call, and every moment we share makes me feel closer to you. <br><br>
+<b>I know I tease you a lot, and sometimes I annoy you, but please know that behind all of that is a person who loves you so much. ❤️</b> <br><br>
+I love seeing you smile, hearing your voice, and spending time with you even when we are miles apart. <br><br>
+I know LDR is not always easy, but I promise to keep choosing you, supporting you, and loving you. <br><br>
+One day, we won't just see each other through a screen. One day, I will finally hold your hand. <br><br>
+Thank you for your love, patience, and understanding. <br><br>
+<b> Distance may separate us, but nothing can separate our hearts. </b> <br><br>
+I miss you every day, Rose. I love you forever. <br><br>
+<b> Forever yours, ❤️<br> Jenielle Barca </b>
+</p>
 </div>
 </div>
 
 <script>
+function openLetter(){ 
+  document.getElementById("letter").style.display="block"; 
+}
+
+// DAYS COUNTER
 let start = new Date("2026-06-17");
 let today = new Date();
 let diffTime = Math.abs(today - start);
 let diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 document.getElementById('days').innerHTML = "Together for " + diffDays + " days ❤️";
+
+// NAHUHULOG NA HEART - AUTO GUMAWA
+setInterval(function(){ 
+  let heart=document.createElement("div"); 
+  heart.className="heart"; 
+  heart.innerHTML="❤️"; 
+  heart.style.left=Math.random()*100+"vw"; 
+  heart.style.fontSize=(20+Math.random()*30)+"px"; // PINALAKI KO RIN HEART
+  document.body.appendChild(heart); 
+  setTimeout(function(){ heart.remove(); },5000); 
+},400);
 </script>
 </body>
 </html>
