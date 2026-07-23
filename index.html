@@ -7,7 +7,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
-  background:linear-gradient(135deg,#ff9a9e,#fecfef);
+  background:linear-gradient(135deg,#ff9a9e 0%,#fecfef 50%,#fecfef 100%);
   min-height:100vh;
   font-family:'Arial', sans-serif;
   overflow-x:hidden;
@@ -15,82 +15,98 @@ body{
 }
 .heart{
   position:fixed;
-  color:red;
+  color:#ff4d6d;
   font-size:25px;
   animation:fall 6s linear infinite;
   pointer-events:none;
   z-index:1;
+  opacity:0.7;
 }
-@keyframes fall{0%{top:-10%;opacity:1}100%{top:110%;opacity:0}}
+@keyframes fall{0%{top:-10%;transform:rotate(0deg)}100%{top:110%;transform:rotate(360deg)}}
 
 /* FULL SCREEN CARD */
 .card{
   background:white;
-  width:100vw; /* FULL WIDTH NG SCREEN */
-  min-height:100vh; /* FULL HEIGHT NG SCREEN */
-  padding:30px 20px;
+  width:100vw;
+  min-height:100vh;
+  padding:40px 20px;
   text-align:center;
   position:relative;
   z-index:10;
-  border-radius:0;
 }
 
-.card h1{color:#ff4d6d;margin:10px 0;font-size:30px}
-.card h2{color:#555;font-size:16px;margin-bottom:20px}
+.card h1{
+  color:#ff4d6d;
+  margin:10px 0;
+  font-size:32px;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+
+.card h2{color:#555;font-size:18px;margin-bottom:10px}
+.days{color:#ff4d6d;font-weight:bold;font-size:16px;margin-bottom:20px}
 
 .gallery{
   display:grid;
-  grid-template-columns:1fr 1fr; /* 2x2 grid */
+  grid-template-columns:1fr 1fr;
   gap:15px;
-  max-width:500px;
-  margin:20px auto;
+  max-width:600px;
+  margin:25px auto;
 }
 
 /* MALAKING PHOTO */
 .photo{
-  width:100%; /* PUNO SA GRID */
-  aspect-ratio:1/1; /* SQUARE */
+  width:100%;
+  aspect-ratio:1/1;
   object-fit:cover;
-  border-radius:20px;
+  border-radius:25px;
   border:4px solid #ff4d6d;
-  box-shadow:0 8px 20px rgba(255,77,109,0.3);
+  box-shadow:0 10px 25px rgba(255,77,109,0.3);
+  transition:transform 0.3s;
 }
+.photo:hover{transform:scale(1.05)}
 
 .btn{
-  background:#ff4d6d;
+  background:linear-gradient(135deg,#ff4d6d,#ff8fa3);
   color:white;
   border:none;
-  padding:15px 35px;
+  padding:16px 40px;
   border-radius:30px;
   font-size:18px;
   cursor:pointer;
   margin:20px 0;
   font-weight:bold;
-  box-shadow:0 5px 15px rgba(255,77,109,0.4);
+  box-shadow:0 8px 20px rgba(255,77,109,0.4);
 }
+.btn:active{transform:scale(0.95)}
+
 #letter{
   display:none;
-  margin:20px auto;
-  padding:25px;
+  margin:25px auto;
+  padding:30px;
   background:#fff0f5;
-  border-radius:20px;
+  border-radius:25px;
   text-align:left;
-  font-size:15px;
-  line-height:1.8;
-  max-width:500px;
+  font-size:16px;
+  line-height:1.9;
+  max-width:600px;
+  border:2px solid #ffc2d1;
 }
+#letter h3{color:#ff4d6d;text-align:center;margin-bottom:15px}
 </style>
 </head>
 <body>
-<div class="heart" style="left:10%">❤️</div>
-<div class="heart" style="left:25%;animation-delay:1s">❤️</div>
-<div class="heart" style="left:50%;animation-delay:2s">❤️</div>
-<div class="heart" style="left:75%;animation-delay:3s">❤️</div>
-<div class="heart" style="left:90%;animation-delay:4s">❤️</div>
+<div class="heart" style="left:5%">❤️</div>
+<div class="heart" style="left:20%;animation-delay:1s">❤️</div>
+<div class="heart" style="left:40%;animation-delay:2s">❤️</div>
+<div class="heart" style="left:60%;animation-delay:1.5s">❤️</div>
+<div class="heart" style="left:80%;animation-delay:3s">❤️</div>
+<div class="heart" style="left:95%;animation-delay:0.5s">❤️</div>
 
 <div class="card">
 <h1>For My Love Rose ❤️</h1>
 <h2>Jenielle Barca ❤️ Rose Pandian</h2>
+<p class="days" id="days"></p>
 
 <div class="gallery">
 <img src="picture1.jpg" class="photo">
@@ -99,7 +115,7 @@ body{
 <img src="picture4.jpg" class="photo">
 </div>
 
-<p><b>Our Love Story Started ❤️</b><br>June 17, 2026</p>
+<p style="font-size:18px;margin:15px 0;"><b>Our Love Story Started ❤️</b><br>June 17, 2026</p>
 
 <button class="btn" onclick="document.getElementById('letter').style.display='block'">
 Open My Heart 💌
@@ -107,17 +123,27 @@ Open My Heart 💌
 
 <div id="letter">
 <h3>My Dearest Rose ❤️</h3>
-<p>Happy Monthsary, my love.</p>
+<p>Happy 2nd Monthsary, my love.</p>
 <p>Since <b>June 17, 2026</b>, you became one of the most special people in my life.</p>
-<p>Even though we are far from each other, my love for you will never change.</p>
-<p><b>I know I tease you a lot, but please know that behind all of that is a person who loves you so much. ❤️</b></p>
-<p>I promise to keep choosing you, supporting you, and loving you.</p>
+<p>Even though we are far from each other, my love for you will never change. Every message, every call, and every moment we share makes me feel closer to you.</p>
+<p><b>I know I tease you a lot, and sometimes I annoy you, but please know that behind all of that is a person who loves you so much. ❤️</b></p>
+<p>I love seeing you smile, hearing your voice, and spending time with you even when we are miles apart.</p>
+<p>I know LDR is not always easy, but I promise to keep choosing you, supporting you, and loving you.</p>
 <p>One day, we won't just see each other through a screen. One day, I will finally hold your hand.</p>
+<p>Thank you for your love, patience, and understanding.</p>
 <p><b>Distance may separate us, but nothing can separate our hearts.</b></p>
 <p>I miss you every day, Rose. I love you forever.</p>
 <p><b>Forever yours, ❤️<br>Jenielle Barca</b></p>
 </div>
 </div>
+
+<script>
+// DAYS COUNTER
+let start = new Date("2026-06-17");
+let today = new Date();
+let diffTime = Math.abs(today - start);
+let diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+document.getElementById('days').innerHTML = "Together for " + diffDays + " days ❤️";
+</script>
 </body>
-</html>
-  
+</html>  
