@@ -7,28 +7,28 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
-  background:linear-gradient(135deg,#ff9a9e 0%,#fecfef 50%,#fecfef 100%);
+  background:linear-gradient(135deg,#ff9a9e,#fecfef);
   min-height:100vh;
-  font-family:'Arial', sans-serif;
+  font-family:Arial;
   overflow-x:hidden;
   position:relative;
 }
 
-/* NAHUHULOG NA HEART - GINANAWA KO */
+/* NAHUHULOG NA HEART */
 .heart{
   position:fixed;
-  color:#ff4d6d;
+  color:red;
+  font-size:20px;
   animation:fall 5s linear infinite;
   pointer-events:none;
   z-index:1;
-  opacity:0.8;
 }
 @keyframes fall{
- 0%{top:-10%;transform:rotate(0deg)}
- 100%{top:110%;transform:rotate(360deg)}
+  0%{top:-10%}
+  100%{top:110%}
 }
 
-/* FULL SCREEN CARD */
+/* FULL SCREEN CARD - ITO LANG BINAGO */
 .card{
   background:white;
   width:100vw;
@@ -41,70 +41,72 @@ body{
 
 .card h1{
   color:#ff4d6d;
-  margin:10px 0;
-  font-size:36px;
+  margin:0;
+  font-size:32px
 }
-.big-heart{
-  font-size:90px;
-  color:#ff4d6d;
-  animation:jump 1.5s infinite;
-  display:inline-block;
-  margin:15px 0;
+.card h2{
+  color:#555;
+  font-size:18px;
+  margin:15px 0
 }
-@keyframes jump{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}
-
-.card h2{color:#555;font-size:20px;margin-bottom:10px}
-.days{color:#ff4d6d;font-weight:bold;font-size:18px;margin-bottom:20px}
 
 .gallery{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  display:flex;
   gap:15px;
-  max-width:700px;
-  margin:25px auto;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin:25px 0;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
 }
+
 .photo{
-  width:100%;
+  width:45%;
+  max-width:280px;
   aspect-ratio:1/1;
   object-fit:cover;
-  border-radius:25px;
-  border:4px solid #ff4d6d;
+  border-radius:20px;
+  border:3px solid #ff4d6d;
 }
 
 button{
-  background:linear-gradient(135deg,#ff4d6d,#ff8fa3);
+  background:#ff4d6d;
   color:white;
   border:none;
-  padding:18px 45px;
-  border-radius:30px;
-  font-size:20px;
+  padding:15px 35px;
+  border-radius:25px;
+  font-size:18px;
   cursor:pointer;
-  margin:20px 0;
+  margin-top:15px;
   font-weight:bold;
 }
 
 #letter{
   display:none;
   margin:25px auto;
-  padding:30px;
+  padding:25px;
   background:#fff0f5;
-  border-radius:25px;
+  border-radius:20px;
   text-align:left;
-  font-size:17px;
-  line-height:2;
-  max-width:700px;
-  border:2px solid #ffc2d1;
+  font-size:16px;
+  line-height:1.8;
+  max-width:600px;
 }
-#letter h3{color:#ff4d6d;text-align:center;margin-bottom:20px;font-size:24px}
 </style>
 </head>
 <body>
 
+<!-- MGA NAHUHULOG NA HEART -->
+<div class="heart" style="left:10%">❤️</div>
+<div class="heart" style="left:30%;animation-delay:1s">❤️</div>
+<div class="heart" style="left:50%;animation-delay:2s">❤️</div>
+<div class="heart" style="left:70%;animation-delay:3s">❤️</div>
+<div class="heart" style="left:90%;animation-delay:4s">❤️</div>
+
 <div class="card">
 <h1>For My Love Rose ❤️</h1>
-<div class="big-heart">❤️</div>
 <h2>Jenielle Barca ❤️ Rose Pandian</h2>
-<p class="days" id="days"></p>
 
 <div class="gallery">
 <img src="picture1.jpg" class="photo">
@@ -113,13 +115,13 @@ button{
 <img src="picture4.jpg" class="photo">
 </div>
 
-<p style="font-size:20px;margin:15px 0;"><b>Our Love Story Started ❤️</b><br>June 17, 2026</p>
+<p style="font-size:18px;"><b>Our Love Story Started ❤️</b><br>June 17, 2026</p>
 
-<button onclick="openLetter()"> Open My Heart 💌 </button>
+<button onclick="openLetter()">Open My Heart 💌</button>
 
 <div id="letter">
-<h3>My Dearest Rose ❤️</h3>
 <p>
+<b>My Dearest Rose ❤️</b> <br><br>
 Happy Monthsary, my love. <br><br>
 Since <b>June 17, 2026</b>, you became one of the most special people in my life. <br><br>
 Even though we are far from each other, my love for you will never change. Every message, every call, and every moment we share makes me feel closer to you. <br><br>
@@ -139,24 +141,6 @@ I miss you every day, Rose. I love you forever. <br><br>
 function openLetter(){ 
   document.getElementById("letter").style.display="block"; 
 }
-
-// DAYS COUNTER
-let start = new Date("2026-06-17");
-let today = new Date();
-let diffTime = Math.abs(today - start);
-let diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-document.getElementById('days').innerHTML = "Together for " + diffDays + " days ❤️";
-
-// NAHUHULOG NA HEART - AUTO GUMAWA
-setInterval(function(){ 
-  let heart=document.createElement("div"); 
-  heart.className="heart"; 
-  heart.innerHTML="❤️"; 
-  heart.style.left=Math.random()*100+"vw"; 
-  heart.style.fontSize=(20+Math.random()*30)+"px"; // PINALAKI KO RIN HEART
-  document.body.appendChild(heart); 
-  setTimeout(function(){ heart.remove(); },5000); 
-},400);
 </script>
 </body>
 </html>
