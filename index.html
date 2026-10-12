@@ -1,287 +1,271 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>For My Love Rose ❤️</title>
+<title>Thinking of You ❤️</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html,body{
-width:100%;
-height:100%;
-overflow-x:hidden;
+body {
+    background: #020515;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    width: 100%;
+    height: 100dvh;
 }
 
-body{
-    margin:0;
-    width:100%;
-    min-height:100vh;
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
-    font-family:Arial,sans-serif;
-    overflow-x:hidden;
+canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.card{
-    width:100%;
-    min-height:100vh;
-    margin:0;
-    padding:25px;
-    box-sizing:border-box;
-    background:transparent;
-    border-radius:0;
-    box-shadow:none;
-    text-align:center;
+.content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    pointer-events: none;
 }
 
-h1{
-color:#ff3366;
-margin-bottom:10px;
-font-size:35px;
+h1 {
+    position: absolute;
+    top: 17%;
+    font-size: clamp(24px, 6vw, 38px);
+    color: #dce8ff;
+    text-shadow: 0 0 15px #448aff;
+    letter-spacing: 2px;
 }
 
-h2{
-color:#555;
-margin-bottom:20px;
+#message {
+    position: absolute;
+    top: 52%;
+    font-size: 17px;
+    color: #cbdcff;
+    text-shadow: 0 0 10px #438cff;
+    padding: 10px;
 }
 
-.gallery{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:10px;
-margin:20px 0;
+.hint {
+    position: absolute;
+    bottom: 7%;
+    font-family: cursive;
+    font-size: 17px;
+    color: #b9c9ff;
+    animation: glow 2s infinite alternate;
 }
 
-.photo{
-width:45%;
-height:170px;
-object-fit:cover;
-border-radius:15px;
-box-shadow:0 5px 10px rgba(0,0,0,.2);
+@keyframes glow {
+    from { opacity: 0.5; }
+    to {
+        opacity: 1;
+        text-shadow: 0 0 15px #589cff;
+    }
 }
-
-button{
-background:#ff3366;
-color:white;
-border:none;
-padding:13px 30px;
-font-size:18px;
-border-radius:30px;
-cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-transform:scale(1.05);
-background:#ff1744;
-}
-
-#letter{
-display:none;
-margin-top:25px;
-text-align:left;
-line-height:1.8;
-color:#444;
-}
-  /* Falling Hearts */
-.heart{
-position:fixed;
-top:-30px;
-color:#ff1744;
-pointer-events:none;
-animation:fall linear forwards;
-z-index:1;
-}
-
-@keyframes fall{
-0%{
-transform:translateY(-10vh) rotate(0deg);
-opacity:1;
-}
-100%{
-transform:translateY(110vh) rotate(360deg);
-opacity:0;
-}
-}
-
-/* Twinkling Stars */
-.star{
-position:fixed;
-background:white;
-border-radius:50%;
-animation:blink 2s infinite;
-z-index:0;
-}
-
-@keyframes blink{
-0%,100%{
-opacity:.2;
-}
-50%{
-opacity:1;
-}
-}
-
-.glow{
-animation:glow 2s infinite alternate;
-}
-
-@keyframes glow{
-from{
-text-shadow:0 0 10px #ff7aa2;
-}
-to{
-text-shadow:0 0 25px #ff3366;
-}
-}
-
 </style>
-
 </head>
 
 <body>
 
-<div class="card">
+<canvas id="canvas"></canvas>
 
-<h1 class="glow">For My Love Rose ❤️</h1>
+<div class="content">
+    <h1>Thinking of You</h1>
 
-<h2>Jenielle Barca ❤️ Rose Pandian</h2>
+    <div id="message">You make my world beautiful ❤️</div>
 
-<div class="gallery">
-
-<img src="picture1.jpg" class="photo">
-<img src="picture2.jpg" class="photo">
-<img src="picture3.jpg" class="photo">
-<img src="picture4.jpg" class="photo">
-
+    <div class="hint">Click anywhere to send hearts</div>
 </div>
-
-<p>
-Our Love Story Started ❤️<br>
-<b>June 17, 2026</b>
-</p>
-
-<button onclick="openLetter()">
-💌 Open My Heart
-</button>
-
-<div id="letter">
-
-<p>
-
-<h2 style="text-align:center;color:#ff3366;">
-❤️ Happy 2nd Monthsary, My Love ❤️
-</h2>
-
-<br>
-
-My Dearest Rose, ❤️
-
-<br><br>
-
-Happy 2nd Monthsary, my love!
-
-It's been two wonderful months since we started this beautiful journey together. Even though we're in a long-distance relationship, you've always made me feel loved and happy.
-
-<br><br>
-
-Thank you for staying with me, for understanding me, and for always making me smile.
-
-<br><br>
-
-I know I tease you a lot sometimes, but please remember that behind every joke is someone who truly loves you with all his heart. ❤️
-
-<br><br>
-
-Distance may keep us apart, but it will never change how much I love you. Every day, I look forward to the moment when we can finally be together and create more beautiful memories.
-
-<br><br>
-
-Thank you for being my happiness, my comfort, and my favorite person.
-
-<br><br>
-
-I promise to keep loving you, supporting you, and choosing you every single day.
-
-<br><br>
-
-No matter how many miles separate us, you will always have my heart. ❤️
-
-<br><br>
-
-<h3 style="text-align:center;color:#ff3366;">
-Happy 2nd Monthsary, My Love! ❤️
-</h3>
-
-<p style="text-align:center;">
-I love you today, tomorrow, and forever. 💖
-</p>
-
-<br><br>
-
-<b>
-Forever Yours,<br>
-Jenielle ❤️
-</b>
-
-</div>
-
-
 
 <script>
-  function openLetter(){
-    document.getElementById("letter").style.display="block";
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+const message = document.getElementById("message");
+
+let width, height;
+let stars = [];
+let particles = [];
+let bursts = [];
+
+const messages = [
+    "You make my world beautiful ❤️",
+    "Even the stars remind me of you ✨",
+    "You're always in my thoughts 💙",
+    "If I could wish for one thing, it would be you.",
+    "No matter how far, you're close to my heart 💖",
+    "Thinking of you, always. ❤️"
+];
+
+function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+
+    stars = [];
+
+    for (let i = 0; i < 150; i++) {
+        stars.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            r: Math.random() * 2 + 0.4,
+            a: Math.random(),
+            speed: Math.random() * 0.025 + 0.005
+        });
+    }
+
+    createHeart();
 }
 
-// Falling Hearts
-function createHeart(){
-
-    const heart=document.createElement("div");
-    heart.className="heart";
-    heart.innerHTML="❤️";
-
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.fontSize=(15+Math.random()*25)+"px";
-    heart.style.animationDuration=(3+Math.random()*4)+"s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(()=>{
-        heart.remove();
-    },7000);
+function heartPoint(t) {
+    return {
+        x: 16 * Math.pow(Math.sin(t), 3),
+        y: -(13 * Math.cos(t)
+          - 5 * Math.cos(2 * t)
+          - 2 * Math.cos(3 * t)
+          - Math.cos(4 * t))
+    };
 }
 
-setInterval(createHeart,150);
+function createHeart() {
+    particles = [];
 
-// Twinkling Stars
-for(let i=0;i<80;i++){
+    const scale = Math.min(width, height) * 0.012;
 
-    const star=document.createElement("div");
+    for (let i = 0; i < 220; i++) {
+        const t = Math.random() * Math.PI * 2;
+        const p = heartPoint(t);
+        const fill = Math.sqrt(Math.random());
 
-    star.className="star";
-
-    let size=Math.random()*3+1;
-
-    star.style.width=size+"px";
-    star.style.height=size+"px";
-
-    star.style.left=Math.random()*100+"vw";
-    star.style.top=Math.random()*100+"vh";
-
-    star.style.animationDelay=Math.random()*2+"s";
-
-    document.body.appendChild(star);
+        particles.push({
+            x: width / 2 + p.x * scale * fill,
+            y: height / 2 + p.y * scale * fill,
+            baseX: p.x * scale * fill,
+            baseY: p.y * scale * fill,
+            size: Math.random() * 2 + 0.5,
+            phase: Math.random() * Math.PI * 2,
+            color: Math.random() > 0.5
+                ? "#4b8bff" : "#d8e8ff"
+        });
+    }
 }
-  </script>
+
+let start = performance.now();
+
+function animate(now) {
+    requestAnimationFrame(animate);
+
+    ctx.clearRect(0, 0, width, height);
+
+    // Galaxy background
+    const bg = ctx.createRadialGradient(
+        width / 2, height / 2, 0,
+        width / 2, height / 2, Math.max(width, height)
+    );
+
+    bg.addColorStop(0, "#081638");
+    bg.addColorStop(0.55, "#03091d");
+    bg.addColorStop(1, "#01020b");
+
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, width, height);
+
+    // Twinkling stars
+    stars.forEach(s => {
+        s.a += s.speed;
+
+        const alpha = 0.25 + (Math.sin(s.a) + 1) * 0.35;
+
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(100,165,255,${alpha})`;
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = "#378aff";
+        ctx.fill();
+        ctx.shadowBlur = 0;
+    });
+
+    // Pulsing heart
+    const time = now / 1000;
+    const pulse = 1 + Math.sin(time * 2.5) * 0.045;
+
+    particles.forEach(p => {
+        const drift = Math.sin(time * 2 + p.phase) * 2;
+
+        const x = width / 2 + p.baseX * pulse + drift;
+        const y = height / 2 + p.baseY * pulse;
+
+        ctx.beginPath();
+        ctx.arc(x, y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = p.color;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+    });
+
+    // Heart burst particles
+    bursts = bursts.filter(p => p.life > 0);
+
+    bursts.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vx *= 0.985;
+        p.vy *= 0.985;
+        p.life -= 0.012;
+
+        ctx.globalAlpha = Math.max(0, p.life);
+        ctx.font = `${p.size}px Arial`;
+        ctx.fillStyle = p.color;
+        ctx.fillText("♥", p.x, p.y);
+    });
+
+    ctx.globalAlpha = 1;
+}
+
+function burst(x, y) {
+    for (let i = 0; i < 35; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 4 + 1;
+
+        bursts.push({
+            x, y,
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            life: 1,
+            size: Math.random() * 15 + 9,
+            color: Math.random() > 0.5
+                ? "#65a5ff" : "#ffffff"
+        });
+    }
+}
+
+let messageIndex = 0;
+
+canvas.addEventListener("pointerdown", function(e) {
+    burst(e.clientX, e.clientY);
+
+    messageIndex = (messageIndex + 1) % messages.length;
+    message.textContent = messages[messageIndex];
+});
+
+window.addEventListener("resize", resize);
+
+resize();
+requestAnimationFrame(animate);
+</script>
 
 </body>
 </html>
